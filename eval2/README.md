@@ -87,3 +87,11 @@ Los commits de este modulo estan divididos entre:
 - Separación efectiva de responsabilidades entre la representación visual (componente hijo) y la lógica de estado (vista padre).
 - **Commit:** `ETAPA 6 – Comunicación entre componentes`
 
+### ETAPA 7 – Persistencia con localStorage
+- Implementación de la vista `Favoritos.vue` para visualizar los servicios seleccionados por el usuario.
+- Guardado y recuperación de los identificadores de servicios en el almacenamiento local del navegador mediante `localStorage`.
+- Conversión de estructuras de datos con `JSON.stringify()` al guardar y `JSON.parse()` al leer la información.
+- Permite la eliminación individual de elementos guardados y la actualización reactiva de la interfaz.
+- Verificación del cumplimiento de la prueba obligatoria: los datos de favoritos persisten correctamente tras recargar el navegador (F5).
+- **Commit:** `Etapa7 - Persistencia localStorage`
+

@@ -3,7 +3,7 @@
     <h2>Servicios Favoritos</h2>
 
     <div v-if="cargando" class="alert alert-info">
-      Cargando favoritos
+      Cargando favoritos...
     </div>
 
     <div v-else-if="serviciosFavoritos.length === 0" class="alert alert-warning">
@@ -42,7 +42,7 @@ const cargarFavoritos = async () => {
   try {
     cargando.value = true
     
-    const idsGuardados = []
+    const idsGuardados = JSON.parse(localStorage.getItem('favoritos')) || []
 
     if (idsGuardados.length === 0) {
       serviciosFavoritos.value = []
@@ -60,6 +60,17 @@ const cargarFavoritos = async () => {
   }
 }
 
+const quitarFavorito = (id) => {
+  serviciosFavoritos.value = serviciosFavoritos.value.filter(s => s.id !== id)
+
+  const nuevosIds = serviciosFavoritos.value.map(s => s.id)
+  localStorage.setItem('favoritos', JSON.stringify(nuevosIds))
+}
+
+const limpiarTodos = () => {
+  serviciosFavoritos.value = []
+  localStorage.removeItem('favoritos')
+}
 
 onMounted(() => {
   cargarFavoritos()
