@@ -105,3 +105,13 @@ Los commits de este modulo estan divididos entre:
   - **Error:** Control de fallos de lectura o red mediante alertas claras para no dejar la pantalla en blanco.
 - **Commit:** `Evaluacion 2 - Consumo de datos con Fetch`
 
+### Etapa 9 - Formulario de contacto
+
+- Implementación de la vista `Contacto.vue` que permite a los usuarios enviar mensajes sobre servicios de su interés.
+- Creación del formulario con los campos requeridos: *Nombre completo*, *Correo electrónico*, *Servicio de interés* y *Mensaje*.
+- Vinculación reactiva de los controles del formulario utilizando **`v-model`**.
+- Lógica de validación en el envío (`@submit.prevent`):
+  - Verifica que ningún campo quede vacío.
+  - En caso de faltar información, muestra un mensaje de advertencia.
+  - Si la información es válida, despliega una confirmación de éxito y limpia el formulario.
+- **Commit:** `Evaluacion 2 - Formulario y validaciones`
