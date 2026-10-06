@@ -26,7 +26,7 @@ Aplicación web desarrollada en Vue.js 3 (Options API / Composition API) para la
 Organización del proyecto bajo una arquitectura modular y limpia para separar responsabilidades:
 
 src/
-├── components/   # Componentes reutilizables (ServicioCard.vue)
+├── components/   # Componentes reutilizables (ServicioGeneral.vue)
 ├── views/        # Vistas principales de la aplicación
 ├── router/       # Configuración de rutas SPA
 ├── App.vue       # Componente raíz
@@ -51,9 +51,9 @@ Configuración de Vue Router para permitir navegación fluida de tipo Single Pag
 
 Construcción de catálogo con un conjunto de 6 servicios dinámicos (ID, Nombre, Categoría, Descripción, Precio, Disponibilidad).
 
-Implementación de la directiva v-for para renderizar elementos dinámicamente sin duplicación de código HTML.
+eSTÁ la directiva v-for para renderizar elementos dinámicamente sin duplicación de código HTML.
 
-Creación del componente reutilizable ServicioCard.vue, el cual recibe la información de cada servicio mediante props.
+Creación del componente reutilizable ServicioGeneral.vue, el cual recibe la información de cada servicio mediante props.
 
 - **Commit:** `Servicios y estilos`
 - **Commit:** `etapa 3 catalogo dinamico`
@@ -71,4 +71,19 @@ Los commits de este modulo estan divididos entre:
 - **Commit:** `Estructura y rutas`
 
 
+### ETAPA 5 – Ruta Dinámica y Detalle del Servicio
+- Configuración de la vista `DetalleServicios.vue` asociada a la ruta dinámica `/servicios/:id`.
+- Captura del parámetro identificador `:id` desde la URL utilizando el composable `useRoute()` de Vue Router.
+- Renderizado de la información detallada del servicio seleccionado: nombre, categoría, descripción completa, precio y disponibilidad.
+- tIENE Manejo de condicionales para validar si el `ID` ingresado en la ruta existe dentro de los datos; en caso contrario, se despliega una alerta indicando que el servicies nn exis
+- **Commit:** `Etapa 5 dinamica y detalle de servicio`
+
+
+### ETAPA 6 – Comunicación entre Componentes (Props y Emit)
+- El componente `ServicioGeneral.vue` gestiona la acción de agregar o quitar de favoritos.
+- El flujo de datos bidireccional entre componentes es:
+  - **Padre a Hijo (`props`):** Pasa la información del servicio y el estado booleano (`esFavorito`) para adaptar la interfaz del botón.
+  - **Hijo a Padre (`emit`):** El componente `ServicioGeneral.vue` emite el evento personalizado `@toggle-favorito` con el `id` del servicio al hacer clic, permitiendo que la vista padre administre el estado.
+- Separación efectiva de responsabilidades entre la representación visual (componente hijo) y la lógica de estado (vista padre).
+- **Commit:** `ETAPA 6 – Comunicación entre componentes`
 
