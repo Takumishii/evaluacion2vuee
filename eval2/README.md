@@ -95,3 +95,13 @@ Los commits de este modulo estan divididos entre:
 - Verificación del cumplimiento de la prueba obligatoria: los datos de favoritos persisten correctamente tras recargar el navegador (F5).
 - **Commit:** `Etapa7 - Persistencia localStorage`
 
+### ETAPA 8 – Consumo de Datos con Fetch
+> **Nota de desarrollo:** La lógica de consumo asíncrono mediante `fetch()`, `async/await` y la estructura del archivo `public/servicios.json` se dejó implementada de manera integral desde la construcción inicial de las vistas para mantener la coherencia del flujo de datos.
+
+- Verificación y consolidación del consumo de datos asíncronos desde `public/servicios.json`.
+- Control de los tres estados de la solicitud asíncrona mediante variables reactivas y bloques `try/catch`:
+  - **Carga:** Despliegue de mensaje de espera (*"Cargando servicios..."*).
+  - **Éxito:** Carga exitosa del catálogo de 6 servicios profesionales.
+  - **Error:** Control de fallos de lectura o red mediante alertas claras para no dejar la pantalla en blanco.
+- **Commit:** `Evaluacion 2 - Consumo de datos con Fetch`
+

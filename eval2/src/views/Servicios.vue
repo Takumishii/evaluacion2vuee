@@ -11,17 +11,23 @@ const favoritosIds = ref(JSON.parse(localStorage.getItem('favoritos')) || [])
 
 const cargarServicios = async () => {
   try {
+    //cargando 
     cargando.value = true
+    //aki esta el fetch de los servicios, se asume que hay un archivo JSON llamado servicios.json en la carpeta public
     const response = await fetch('/servicios.json')
+    //aa
     if (!response.ok) throw new Error('Error al obtener los servicios.')
     servicios.value = await response.json()
   } catch (err) {
+    //mensaje de error en caso de que no se pueda cargar la información
     error.value = 'No se pudo cargar la información. Intente más tarde.'
   } finally {
+    //ya cargó la información, se cambia el estado de cargando a false wiiiiii
     cargando.value = false
   }
 }
 
+//filtro de busqueda y categoría, se filtra por nombre y categoría seleccionada
 const serviciosFiltrados = computed(() => {
   return servicios.value.filter(s => {
     const coincideNombre = s.nombre.toLowerCase().includes(busqueda.value.toLowerCase())
@@ -49,7 +55,7 @@ onMounted(() => {
 
 <template>
   <div class="container my-4">
-    <h2>Catálogo de Servicios</h2>
+    <h2>Catalogo de Servicios</h2>
 
     <div class="row mb-4">
       <div class="col-md-6 mb-2">
@@ -70,9 +76,8 @@ onMounted(() => {
         </select>
       </div>
     </div>
-
     <div v-if="cargando" class="alert alert-info">
-      Cargando servicios
+      Mensaje de carga: Cargando servicios..
     </div>
     <div v-else-if="error" class="alert alert-danger">
       {{ error }}
@@ -89,7 +94,7 @@ onMounted(() => {
         />
       </div>
       <div v-else class="alert alert-warning">
-        No se encontraron servicios para los criterios (tonoto).
+        No se encontraron servicios para los criterios de búsqueda seleccionados.
       </div>
     </div>
   </div>
