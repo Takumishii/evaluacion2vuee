@@ -1,48 +1,3 @@
-<template>
-  <div class="container my-4">
-    <h2>Catálogo de Servicios</h2>
-
-    <div class="row mb-4">
-      <div class="col-md-6 mb-2">
-        <input 
-          v-model="busqueda" 
-          type="text" 
-          class="form-control" 
-          placeholder="Buscar servicio por nombre"
-        />
-      </div>
-      <div class="col-md-6 mb-2">
-        <select v-model="categoriaSeleccionada" class="form-select">
-          <option value="">Todas las categorías</option>
-          <option value="Tecnología">Tecnología</option>
-          <option value="Finanzas">Finanzas</option>
-          <option value="Servicios del Hogar">Servicios del Hogar</option>
-          <option value="Legal">Legal</option>
-          <option value="Entretenimiento">Entretenimiento</option>
-        </select>
-      </div>
-    </div>
-
-    <div v-if="cargando" class="alert alert-info">Cargando servicios</div>
-    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
-
-    <div v-else>
-      <div v-if="serviciosFiltrados.length > 0">
-        <ServicioGeneral 
-          v-for="item in serviciosFiltrados" 
-          :key="item.id" 
-          :servicio="item"
-          :esFavorito="favoritosIds.includes(item.id)"
-          @toggle-favorito="toggleFavorito"
-        />
-      </div>
-      <div v-else class="alert alert-warning">
-        No se encontraron servicios para los criterios seleccionados.
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import ServicioGeneral from '../components/ServicioGeneral.vue'
@@ -76,15 +31,67 @@ const serviciosFiltrados = computed(() => {
 })
 
 const toggleFavorito = (id) => {
-  if (favoritosIds.value.includes(id)) {
+  if (favoritosIds.value.includes(id)) 
+  {
     favoritosIds.value = favoritosIds.value.filter(favId => favId !== id)
   } else {
     favoritosIds.value.push(id)
   }
+
   localStorage.setItem('favoritos', JSON.stringify(favoritosIds.value))
 }
 
 onMounted(() => {
   cargarServicios()
 })
+
 </script>
+
+<template>
+  <div class="container my-4">
+    <h2>Catálogo de Servicios</h2>
+
+    <div class="row mb-4">
+      <div class="col-md-6 mb-2">
+        <input 
+
+          v-model="busqueda" 
+          type="text" 
+          class="form-control" 
+          placeholder="Buscar servicio por nombre"
+        />
+      </div>
+      <div class="col-md-6 mb-2">
+        <select v-model="categoriaSeleccionada" class="form-select">
+          <option value="">Todas las categorías</option>
+          <option value="Tecnología">Tecnología</option>
+          <option value="Finanzas">Finanzas</option>
+          <option value="Servicios del Hogar">Servicios del Hogar</option>
+          <option value="Entretenimiento">Entretenimiento</option>
+        </select>
+      </div>
+    </div>
+
+    <div v-if="cargando" class="alert alert-info">
+      Cargando servicios
+    </div>
+    <div v-else-if="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <div v-else>
+      <div v-if="serviciosFiltrados.length > 0">
+        <ServicioGeneral 
+          v-for="item in serviciosFiltrados" 
+          :key="item.id" 
+          :servicio="item"
+          :esFavorito="favoritosIds.includes(item.id)"
+          @toggle-favorito="toggleFavorito"
+        />
+      </div>
+      <div v-else class="alert alert-warning">
+        No se encontraron servicios para los criterios (tonoto).
+      </div>
+    </div>
+  </div>
+</template>
