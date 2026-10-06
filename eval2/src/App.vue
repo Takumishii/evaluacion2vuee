@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <Navbar />
-    <!-- Agregamos la clase "content" para empujar el footer hacia abajo -->
     <main class="content">
       <router-view />
     </main>
-    <!-- Agregamos la etiqueta del Footer aquí -->
     <Footer />
   </div>
 </template>
@@ -30,10 +28,9 @@ export default {
 }
 
 .content {
-  flex: 1; /* Esto hace que el contenido ocupe el espacio disponible y mande el footer al fondo */
+  flex: 1; 
 }
 
-/* Estilos globales básicos */
 body {
   font-family: Arial, sans-serif;
   margin: 0;

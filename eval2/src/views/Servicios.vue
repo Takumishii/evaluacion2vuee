@@ -1,6 +1,6 @@
 <template>
   <div class="container my-4">
-    <h2>Catálogo de Servicios de Ñuble</h2>
+    <h2>Catálogo de Servicios</h2>
 
     <div class="row mb-4">
       <div class="col-md-6 mb-2">
@@ -8,7 +8,7 @@
           v-model="busqueda" 
           type="text" 
           class="form-control" 
-          placeholder="Buscar servicio por nombre..."
+          placeholder="Buscar servicio por nombre"
         />
       </div>
       <div class="col-md-6 mb-2">
@@ -18,17 +18,17 @@
           <option value="Finanzas">Finanzas</option>
           <option value="Servicios del Hogar">Servicios del Hogar</option>
           <option value="Legal">Legal</option>
-          <option value="Marketing">Marketing</option>
+          <option value="Entretenimiento">Entretenimiento</option>
         </select>
       </div>
     </div>
 
-    <div v-if="cargando" class="alert alert-info">Cargando servicios...</div>
+    <div v-if="cargando" class="alert alert-info">Cargando servicios</div>
     <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
 
     <div v-else>
       <div v-if="serviciosFiltrados.length > 0">
-        <ServicioCard 
+        <ServicioGeneral 
           v-for="item in serviciosFiltrados" 
           :key="item.id" 
           :servicio="item"
@@ -45,7 +45,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import ServicioCard from '../components/ServicioCard.vue'
+import ServicioGeneral from '../components/ServicioGeneral.vue'
 
 const servicios = ref([])
 const cargando = ref(true)
@@ -57,7 +57,7 @@ const favoritosIds = ref(JSON.parse(localStorage.getItem('favoritos')) || [])
 const cargarServicios = async () => {
   try {
     cargando.value = true
-    const response = await fetch('/servicios.json')
+    const response = await fetch('/services/servicios.json')
     if (!response.ok) throw new Error('Error al obtener los servicios.')
     servicios.value = await response.json()
   } catch (err) {

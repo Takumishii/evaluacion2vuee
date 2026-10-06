@@ -4,15 +4,15 @@ import Servicios from '../views/Servicios.vue'
 import DetalleServicio from '../views/DetalleServicio.vue'
 import Favoritos from '../views/Favoritos.vue'
 import ContactoView from '../views/Contacto.vue'
-import Error404 from '../views/404.vue'
+import Error404 from '../views/Error404.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: Inicio },
+  { path: '/', name: 'Inicio', component: Inicio },
   { path: '/servicios', name: 'Servicios', component: Servicios },
   { path: '/servicios/:id', name: 'Detalle', component: DetalleServicio },
   { path: '/favoritos', name: 'Favoritos', component: Favoritos },
   { path: '/contacto', name: 'Contacto', component: ContactoView },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: Error404 }
+  { path: '/:pathMatch(.*)*', name: 'Error404', component: Error404 }
 ]
 
 const router = createRouter({
