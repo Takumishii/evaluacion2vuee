@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Diseño Web Profesional",
+    "categoria": "Tecnología",
+    "descripcion": "Creación de sitios web modernos y adaptables a móviles.",
+    "precio": 150000,
+    "disponible": true
+  },
+  {
+    "id": 2,
+    "nombre": "Bailarín profesional para eventos",
+    "categoria": "Entretenimiento",
+    "descripcion": "Servicio de baile para celebraciones y eventos especiales.",
+    "precio": 80000,
+    "disponible": true
+  },
+  {
+    "id": 3,
+    "nombre": "Reparaciones de computadoras",
+    "categoria": "Tecnología",
+    "descripcion": "Reparación y mantenimiento de equipos de cómputo.",
+    "precio": 45000,
+    "disponible": false
+  },
+  {
+    "id": 4,
+    "nombre": "Mariachi para eventos",
+    "categoria": "Entretenimiento",
+    "descripcion": "Servicio de música para celebraciones y eventos especiales.",
+    "precio": 12000,
+    "disponible": true
+  },
+  {
+    "id": 5,
+    "nombre": "Testeo profesional de videojuegos",
+    "categoria": "Entretenimiento",
+    "descripcion": "Pruebas y evaluación de videojuegos antes de su lanzamiento.",
+    "precio": 35000,
+    "disponible": true
+  },
+  {
+    "id": 6,
+    "nombre": "Picar leña a domicilio",
+    "categoria": "Servicios del Hogar",
+    "descripcion": "Servicio de picado de leña para calefacción y chimeneas.",
+    "precio": 20000,
+    "disponible": true
+  }
+]
