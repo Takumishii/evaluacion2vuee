@@ -115,3 +115,5 @@ Los commits de este modulo estan divididos entre:
   - En caso de faltar información, muestra un mensaje de advertencia.
   - Si la información es válida, despliega una confirmación de éxito y limpia el formulario.
 - **Commit:** `Evaluacion 2 - Formulario y validaciones`
+
+## Revisado y funcional
