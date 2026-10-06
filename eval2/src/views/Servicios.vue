@@ -65,7 +65,6 @@ onMounted(() => {
         <select v-model="categoriaSeleccionada" class="form-select">
           <option value="">Todas las categorías</option>
           <option value="Tecnología">Tecnología</option>
-          <option value="Finanzas">Finanzas</option>
           <option value="Servicios del Hogar">Servicios del Hogar</option>
           <option value="Entretenimiento">Entretenimiento</option>
         </select>
