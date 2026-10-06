@@ -57,7 +57,7 @@ const favoritosIds = ref(JSON.parse(localStorage.getItem('favoritos')) || [])
 const cargarServicios = async () => {
   try {
     cargando.value = true
-    const response = await fetch('/services/servicios.json')
+    const response = await fetch('/servicios.json')
     if (!response.ok) throw new Error('Error al obtener los servicios.')
     servicios.value = await response.json()
   } catch (err) {
